@@ -24,8 +24,7 @@ public class ReglaAntiguedad implements ReglaPriorizacion {
         LocalDateTime ahora = LocalDateTime.now();
         
         long diasAntiguedad = ChronoUnit.DAYS.between(fechaCreacion, ahora);
-        
-        // Asegurar que no sea negativo (por si la fecha es futura)
+
         diasAntiguedad = Math.max(0, diasAntiguedad);
         
         double puntaje = diasAntiguedad * PUNTOS_POR_DIA;
