@@ -1,9 +1,7 @@
 package com.example.motor_reglas_priorizacion.infrastructure.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -23,13 +21,7 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("Motor de Reglas de Priorización API")
                         .version("1.0.0")
-                        .description("API REST para el motor de reglas de priorización de solicitudes")
-                        .contact(new Contact()
-                                .name("Equipo de Desarrollo")
-                                .email("desarrollo@example.com"))
-                        .license(new License()
-                                .name("Apache 2.0")
-                                .url("https://www.apache.org/licenses/LICENSE-2.0")))
+                        .description("API REST para el motor de reglas de priorización de solicitudes"))
                 .servers(List.of(
                         new Server()
                                 .url("http://localhost:" + serverPort)

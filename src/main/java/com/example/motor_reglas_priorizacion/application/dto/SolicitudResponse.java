@@ -36,7 +36,6 @@ public class SolicitudResponse {
                 .prioridadManual(solicitud.getPrioridadManual())
                 .fechaCreacion(solicitud.getFechaCreacion())
                 .usuario(solicitud.getUsuario())
-                .descripcion(solicitud.getDescripcion())
                 .prioridadCalculada(prioridadCalculada)
                 .build();
     }

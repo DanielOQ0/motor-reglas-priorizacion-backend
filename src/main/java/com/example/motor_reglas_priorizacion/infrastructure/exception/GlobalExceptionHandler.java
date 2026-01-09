@@ -2,7 +2,6 @@ package com.example.motor_reglas_priorizacion.infrastructure.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -33,21 +32,6 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST.value())
                 .error("Bad Request")
                 .message(message)
-                .path(request.getRequestURI())
-                .build();
-    }
-
-    /**
-     * Maneja el error cuando no se encuentra una solicitud.
-     */
-    @ExceptionHandler(SolicitudNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponse handleNotFound(SolicitudNotFoundException ex, HttpServletRequest request) {
-        return ErrorResponse.builder()
-                .timestamp(LocalDateTime.now())
-                .status(HttpStatus.NOT_FOUND.value())
-                .error("Not Found")
-                .message(ex.getMessage())
                 .path(request.getRequestURI())
                 .build();
     }

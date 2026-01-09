@@ -9,9 +9,7 @@ import java.util.List;
 /**
  * Motor de priorización que aplica todas las reglas configuradas para calcular
  * la prioridad de una solicitud.
- * 
- * El puntaje final es la suma ponderada de cada regla:
- * puntaje = Σ (reglaPuntaje * reglaPeso)
+ *
  */
 @Service
 public class PriorizacionEngine {
@@ -37,11 +35,5 @@ public class PriorizacionEngine {
                 .sum();
     }
 
-    /**
-     * Obtiene la lista de reglas configuradas.
-     */
-    public List<ReglaPriorizacion> getReglas() {
-        return reglas;
-    }
 }
 

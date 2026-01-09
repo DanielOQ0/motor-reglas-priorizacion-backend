@@ -49,14 +49,5 @@ public class SolicitudController {
         List<SolicitudResponse> solicitudes = solicitudService.listarPriorizadas();
         return ResponseEntity.ok(solicitudes);
     }
-
-    /**
-     * GET /api/solicitudes/{id} - Obtener una solicitud por ID
-     */
-    @GetMapping("/{id}")
-    public ResponseEntity<SolicitudResponse> obtenerPorId(@PathVariable Long id) {
-        SolicitudResponse response = solicitudService.obtenerPorId(id);
-        return ResponseEntity.ok(response);
-    }
 }
 

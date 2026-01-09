@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * DTO para recibir solicitudes de creacion de una nueva solicitud.
+  * DTO para recibir solicitudes de creación de una nueva solicitud.
  */
 @Data
 @NoArgsConstructor
@@ -21,13 +21,10 @@ public class SolicitudRequest {
 
     @NotNull(message = "El campo 'prioridadManual' es obligatorio")
     @Min(value = 1, message = "La prioridad manual debe ser al menos 1")
-    @Max(value = 5, message = "La prioridad manual debe ser como maximo 5")
+        @Max(value = 5, message = "La prioridad manual debe ser como máximo 5")
     private Integer prioridadManual;
 
     @NotBlank(message = "El campo 'usuario' es obligatorio")
     @Size(max = 100, message = "El usuario no puede exceder 100 caracteres")
     private String usuario;
-
-    @Size(max = 500, message = "La descripcion no puede exceder 500 caracteres")
-    private String descripcion;
 }

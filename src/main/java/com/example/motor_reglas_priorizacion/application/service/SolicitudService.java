@@ -4,7 +4,6 @@ import com.example.motor_reglas_priorizacion.application.dto.SolicitudRequest;
 import com.example.motor_reglas_priorizacion.application.dto.SolicitudResponse;
 import com.example.motor_reglas_priorizacion.application.engine.PriorizacionEngine;
 import com.example.motor_reglas_priorizacion.domain.model.Solicitud;
-import com.example.motor_reglas_priorizacion.infrastructure.exception.SolicitudNotFoundException;
 import com.example.motor_reglas_priorizacion.infrastructure.repository.SolicitudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +35,6 @@ public class SolicitudService {
                 .tipo(request.getTipo())
                 .prioridadManual(request.getPrioridadManual())
                 .usuario(request.getUsuario())
-                .descripcion(request.getDescripcion())
                 .build();
 
         Solicitud guardada = solicitudRepository.save(solicitud);
@@ -70,18 +68,6 @@ public class SolicitudService {
                 })
                 .sorted(Comparator.comparing(SolicitudResponse::getPrioridadCalculada).reversed())
                 .collect(Collectors.toList());
-    }
-
-    /**
-     * Obtiene una solicitud por su ID.
-     */
-    @Transactional(readOnly = true)
-    public SolicitudResponse obtenerPorId(Long id) {
-        Solicitud solicitud = solicitudRepository.findById(id)
-                .orElseThrow(() -> new SolicitudNotFoundException(id));
-
-        double prioridadCalculada = priorizacionEngine.calcularPrioridad(solicitud);
-        return SolicitudResponse.fromEntity(solicitud, prioridadCalculada);
     }
 }
 

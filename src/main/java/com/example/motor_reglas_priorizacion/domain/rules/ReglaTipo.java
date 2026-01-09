@@ -6,13 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Regla de priorización basada en el tipo de solicitud.
- * Los incidentes tienen mayor urgencia.
- * 
- * Peso: 40%
- * Lógica:
- *   - INCIDENTE → 100 puntos
- *   - REQUERIMIENTO → 50 puntos
- *   - CONSULTA → 25 puntos
+ *
  */
 @Component
 public class ReglaTipo implements ReglaPriorizacion {

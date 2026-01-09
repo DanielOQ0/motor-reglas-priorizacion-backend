@@ -8,13 +8,7 @@ import java.time.temporal.ChronoUnit;
 
 /**
  * Regla de priorización basada en la antigüedad de la solicitud.
- * Evita que las solicitudes queden olvidadas.
- * 
- * Peso: 35%
- * Lógica:
- *   - Calcular días desde fechaCreacion hasta hoy
- *   - Puntaje = min(diasAntiguedad * 5, 100)
- *   - Máximo 100 puntos (20+ días)
+ *
  */
 @Component
 public class ReglaAntiguedad implements ReglaPriorizacion {
